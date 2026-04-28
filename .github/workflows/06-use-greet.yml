@@ -1,0 +1,26 @@
+# .github/workflows/06-use-greet.yml
+
+name: 06. Greet Composite 사용
+on:
+  workflow_dispatch:
+    inputs:
+      who:
+        description: '인사 대상'
+        required: true
+        default: 'World'
+        type: string
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 기본값으로 호출
+        uses: ./.github/actions/greet-action
+
+      - name: 사용자 입력값으로 호출
+        uses: ./.github/actions/greet-action
+        with:
+          user-name: ${{ inputs.who }}
+          greeting: "Welcome"
