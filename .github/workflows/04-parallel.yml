@@ -6,7 +6,7 @@ on:
 
 jobs:
   job-a:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     steps:
       - run: |
           echo "Job A 시작"
@@ -15,6 +15,7 @@ jobs:
 
   job-b:
     runs-on: ubuntu-latest
+    needs: job-a
     steps:
       - run: |
           echo "Job B 시작"
