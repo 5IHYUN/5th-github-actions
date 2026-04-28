@@ -1,0 +1,22 @@
+# .github/workflows/06-use-calc.yml
+
+name: 06. Calc Composite 사용
+on:
+  workflow_dispatch
+
+jobs:
+  calc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 계산 실행
+        id: my-calc
+        uses: ./.github/actions/calc-action
+        with:
+          num1: 10
+          num2: 25
+
+      - name: 결과 사용
+        run: |
+          echo "Composite Action에서 받은 합: ${{ steps.my-calc.outputs.sum }}"
