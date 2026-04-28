@@ -5,7 +5,6 @@ on:
 jobs:
   metadata:
     runs-on: ubuntu-latest
-
     steps:
       - name: 메타데이터 생성
         id: meta
