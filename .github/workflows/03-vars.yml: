@@ -10,9 +10,9 @@ jobs:
         run: |
           echo "App Name: ${{ vars.APP_NAME }}"
 
-  deploy:   # ← jobs 안으로 넣어야 함
+  deploy:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: prod
     steps:
       - name: vars 출력
         run: |
