@@ -1,0 +1,28 @@
+# .github/actions/calc-action/action.yml
+
+name: "Calc Action"
+description: "두 숫자의 합을 계산"
+
+inputs:
+  num1:
+    description: "첫 번째 숫자"
+    required: true
+  num2:
+    description: "두 번째 숫자"
+    required: true
+
+outputs:
+  sum:
+    description: "합계"
+    value: ${{ steps.compute.outputs.result }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: 합 계산
+      id: compute
+      shell: bash
+      run: |
+        SUM=$((${{ inputs.num1 }} + ${{ inputs.num2 }}))
+        echo "result=$SUM" >> $GITHUB_OUTPUT
+        echo "${{ inputs.num1 }} + ${{ inputs.num2 }} = $SUM"
