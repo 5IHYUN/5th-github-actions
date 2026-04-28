@@ -1,0 +1,23 @@
+# .github/actions/greet-action/action.yml
+
+name: "Greet Action"
+description: "이름과 인사말을 받아 메시지 생성"
+
+inputs:
+  user-name:
+    description: "사용자 이름"
+    required: true
+    default: "user"
+  greeting:
+    description: "인사말"
+    required: false
+    default: "Hello"
+
+runs:
+  using: "composite"
+  steps:
+    - name: 메시지 출력
+      shell: bash
+      run: |
+        echo "=== Greet Action 실행 ==="
+        echo "${{ inputs.greeting }}, ${{ inputs.user-name }}!"
