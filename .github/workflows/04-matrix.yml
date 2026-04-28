@@ -5,12 +5,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         fruits: [Apple, Banana, Kiwi]
-
     steps:
       - name: 과일 출력
         run: |
-          echo "현재 과일: ${{ matrix.fruits }}"
+          echo "현재과일: ${{ matrix.fruits }}"
